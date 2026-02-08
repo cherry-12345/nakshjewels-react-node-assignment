@@ -8,8 +8,8 @@ RUN npm install
 
 COPY . .
 
-# Build with the Docker-specific API URL
-ENV REACT_APP_API_URL=http://backend:5000/api
+# Build with the localhost API URL (React runs in browser, not container)
+ENV REACT_APP_API_URL=http://localhost:5000/api
 RUN npm run build
 
 # Stage 2: Serve with Nginx
