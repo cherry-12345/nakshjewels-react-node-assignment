@@ -12,6 +12,10 @@ frontend/build/
 # Debug logs
 npm-debug.log*
 
+# Test coverage
+coverage/
+*.lcov
+
 # IDE
 .vscode/
 .idea/

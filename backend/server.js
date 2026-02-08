@@ -40,9 +40,14 @@ app.use((req, res, next) => {
 // Global Error Handler - Must be last middleware
 app.use(errorHandler);
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`✓ Server running on port ${PORT}`);
-  console.log(`✓ Environment: ${process.env.NODE_ENV || "development"}`);
-  console.log(`✓ Health check: http://localhost:${PORT}/health`);
-});
+// Start server only when not in test mode
+if (process.env.NODE_ENV !== "test") {
+  app.listen(PORT, () => {
+    console.log(`✓ Server running on port ${PORT}`);
+    console.log(`✓ Environment: ${process.env.NODE_ENV || "development"}`);
+    console.log(`✓ Health check: http://localhost:${PORT}/health`);
+  });
+}
+
+// Export app for testing
+module.exports = app;
