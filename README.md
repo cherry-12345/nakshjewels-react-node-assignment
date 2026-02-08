@@ -6,6 +6,55 @@ A mini e-commerce module built with **React 18**, **Redux Toolkit**, **Node.js**
 
 ---
 
+## Assessment Instructions (Provided)
+
+**Purpose:** Evaluate real-world development skills, code quality, problem-solving ability, and basic DevOps understanding.
+
+**Assignment Overview:** Build a mini e-commerce module using React (or Next.js) and Node.js. Focus on clean code, structure, and practical implementation. Time limit: 48 hours.
+
+**Part A: Frontend (React / Next.js)**
+- Product listing page (static JSON or API)
+- Product card: image, name, price, Add to Cart
+- Cart page: update quantity, remove item
+- State management: Redux or Context API
+- Responsive design (basic)
+
+**Rules**
+- Functional components only
+- No UI libraries (Bootstrap, MUI, Ant, etc.)
+- Clean folder structure
+- Meaningful Git commits
+
+**Part B: Backend (Node.js + Express)**
+- GET /products API
+- POST /cart API
+- Validation middleware
+- Proper error handling
+- MongoDB or in-memory data
+- Environment variables with .env
+
+**Part C: Docker (Mandatory)**
+- Dockerfile for frontend
+- Dockerfile for backend
+- docker-compose.yml
+- Must run with docker-compose up
+
+**Submission Guidelines**
+- GitHub repository link
+- README.md with setup + Docker instructions
+- Screenshots or short demo video (optional)
+
+**Evaluation Criteria**
+- Code quality and structure
+- Understanding of React & Node fundamentals
+- Docker setup correctness
+- Error handling & edge cases
+- Communication and clarity
+
+**Note:** Copy-pasted tutorial code, poor structure, or non-working Docker setup will lead to rejection.
+
+---
+
 ## Features
 
 - Product listing page using backend API
@@ -94,6 +143,12 @@ npm start
 
 Server runs at `http://localhost:5000`.
 
+Create a .env file based on the example:
+
+```bash
+copy .env.example .env
+```
+
 #### Frontend
 
 ```bash
@@ -105,6 +160,123 @@ npm start
 App opens at `http://localhost:3000`.
 
 ---
+
+## Assessment Breakdown (A, B, C) + Independent Tests
+
+Follow these sections to validate each part independently.
+
+### Part A: Frontend (React)
+
+**Scope**
+- Product listing page (API-driven)
+- Product card: image, name, price, Add to Cart
+- Cart page: update quantity, remove item
+- State management: Redux Toolkit
+- Responsive layout (basic)
+- Functional components only, no UI libraries
+
+**How to test (frontend only)**
+1. Start backend (see Part B) so products load from API.
+2. Start frontend:
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+3. Verify:
+   - Product listing shows cards with image, name, and price.
+   - Add to Cart adds item to cart state.
+   - Cart page allows quantity updates and item removal.
+   - Layout is usable on mobile width (~375px).
+
+---
+
+### Part B: Backend (Node.js + Express)
+
+**Scope**
+- `GET /api/products`
+- `POST /api/cart`
+- Validation middleware
+- Error handling
+- In-memory data source
+- Environment variables via `.env`
+
+**How to test (backend only)**
+1. Create `.env`:
+
+```bash
+cd backend
+copy .env.example .env
+```
+
+2. Start backend:
+
+```bash
+npm install
+npm start
+```
+
+3. Verify endpoints:
+
+```bash
+curl http://localhost:5000/api/products
+```
+
+```bash
+curl -X POST http://localhost:5000/api/cart ^
+  -H "Content-Type: application/json" ^
+  -d "{\"productId\":1,\"quantity\":2}"
+```
+
+4. Validation check:
+
+```bash
+curl -X POST http://localhost:5000/api/cart ^
+  -H "Content-Type: application/json" ^
+  -d "{\"productId\":1,\"quantity\":0}"
+```
+
+Expected: 400 with validation error payload.
+
+---
+
+### Part C: Docker (Mandatory)
+
+**Scope**
+- Dockerfile for frontend
+- Dockerfile for backend
+- `docker-compose.yml`
+- App runs via `docker-compose up`
+
+**How to test (Docker only)**
+1. From repo root:
+
+```bash
+docker-compose up --build
+```
+
+2. Verify:
+   - Frontend: http://localhost:3000
+   - Backend: http://localhost:5000/api/products
+
+3. Stop:
+
+```bash
+docker-compose down
+```
+
+---
+
+## Quick Verification Checklist
+
+- Frontend loads and shows product cards with image, name, price.
+- Add to Cart updates cart state and UI.
+- Cart quantity update and remove item work as expected.
+- `GET /api/products` returns product list.
+- `POST /api/cart` accepts valid payload and rejects invalid payload.
+- Docker setup runs both services with `docker-compose up --build`.
 
 ## API Endpoints
 

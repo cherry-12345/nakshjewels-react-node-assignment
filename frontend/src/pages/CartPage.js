@@ -11,8 +11,12 @@ const CartPage = ({ onBackToProducts }) => {
     return (
       <section className="cart-page">
         <h2>Cart</h2>
-        <p>Your cart is empty</p>
-        <button onClick={onBackToProducts}>Back to Products</button>
+        <div className="empty-cart">
+          <p className="empty-cart-text">Your cart is empty</p>
+          <button className="continue-shopping-btn" onClick={onBackToProducts}>
+            Back to Products
+          </button>
+        </div>
       </section>
     );
   }

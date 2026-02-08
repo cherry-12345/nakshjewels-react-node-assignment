@@ -1,7 +1,3 @@
-/* ============= */
-/*   App Layout  */
-/* ============= */
-
 .app {
   display: flex;
   flex-direction: column;
@@ -9,40 +5,39 @@
 }
 
 .simple-header {
-  background-color: var(--color-primary);
+  background: var(--color-primary);
   color: #fff;
-  padding: 16px;
+  padding: 20px 16px;
   box-shadow: var(--shadow-md);
 }
 
 .simple-title {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .simple-nav {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
 }
 
 .nav-btn {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
   color: #fff;
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: var(--radius);
   font-weight: 600;
   transition: background 0.2s;
 }
 
 .nav-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .nav-btn.active {
   background: #fff;
-  color: var(--color-primary-dark);
+  color: var(--color-primary);
 }
 
 .main-content {
