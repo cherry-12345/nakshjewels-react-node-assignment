@@ -378,4 +378,6 @@ curl -X POST http://localhost:5000/api/cart \
 
 ## Author
 
-Built for the **Naksh Jewels Development Team** internship assessment.
+Developed by **Charan Katkam**
+
+Built for the Naksh Jewels ReactJS & Node.js Internship Assessment.
