@@ -353,6 +353,22 @@ curl -X POST http://localhost:5000/api/cart \
 
 ---
 
+## Design Decisions
+
+### Backend
+- **In-memory storage**: Used as allowed by assignment requirements. In production, this would be replaced with Redis or a database.
+- **Validation strategy**: Used express-validator for declarative, robust validation with proper error messages.
+- **Error handling**: Centralized error middleware for consistent error responses across all endpoints.
+- **API design**: RESTful conventions with consistent response format (`success`, `data`, `error` fields).
+
+### Frontend
+- **State management**: Redux Toolkit chosen to demonstrate scalable state management patterns.
+- **Component design**: Functional components with hooks, following React best practices.
+- **Styling approach**: Custom CSS with CSS variables for consistency, no external UI libraries as per requirements.
+- **Minimal and focused**: Kept UI simple to focus on functionality, code quality, and architecture.
+
+---
+
 ## Tech Stack
 
 | Layer     | Technology                          |
