@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+import { useSelector } from "react-redux";
 import ProductListing from "./pages/ProductListing";
 import CartPage from "./pages/CartPage";
 import "./styles/App.css";
 
 const App = () => {
   const [activeView, setActiveView] = useState("products");
+  const cartItems = useSelector((state) => state.cart.items);
+  const cartCount = useMemo(
+    () => cartItems.reduce((total, item) => total + item.quantity, 0),
+    [cartItems]
+  );
 
   return (
     <div className="app">
@@ -24,6 +30,11 @@ const App = () => {
             onClick={() => setActiveView("cart")}
           >
             Cart
+            {cartCount > 0 && (
+              <span className="cart-badge" aria-label={`${cartCount} items in cart`}>
+                {cartCount}
+              </span>
+            )}
           </button>
         </nav>
       </header>
