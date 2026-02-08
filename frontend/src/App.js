@@ -1,18 +1,10 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import ProductListing from "./pages/ProductListing";
 import CartPage from "./pages/CartPage";
-import { selectCartSummary } from "./store/slices/cartSlice";
 import "./styles/App.css";
 
-/**
- * App - Root component
- * Simple single-page application with view switching between Products and Cart
- * No routing library used to keep dependencies minimal per assignment requirements
- */
 const App = () => {
   const [activeView, setActiveView] = useState("products");
-  const { itemCount } = useSelector(selectCartSummary);
 
   return (
     <div className="app">
@@ -31,7 +23,7 @@ const App = () => {
             className={`nav-btn ${activeView === "cart" ? "active" : ""}`}
             onClick={() => setActiveView("cart")}
           >
-            Cart {itemCount > 0 && `(${itemCount})`}
+            Cart
           </button>
         </nav>
       </header>
