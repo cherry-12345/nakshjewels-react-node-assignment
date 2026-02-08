@@ -251,4 +251,5 @@ Error response:
 
 Developed by **Charan Katkam**
 Full Stack Developer
+
 Built for the Naksh Jewels ReactJS & Node.js Internship Assessment
