@@ -145,7 +145,7 @@ Server runs at `http://localhost:5000`.
 Create a .env file based on the example:
 
 ```bash
-copy .env.example .env
+copy backend\.env.example backend\.env
 ```
 
 #### Frontend
